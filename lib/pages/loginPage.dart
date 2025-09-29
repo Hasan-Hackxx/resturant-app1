@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:resturant_app1/Auth/auth_exceptions.dart';
+import 'package:resturant_app1/Auth/auth_service.dart';
+import 'package:resturant_app1/components/errorDailog.dart';
 import 'package:resturant_app1/components/myButton.dart';
 import 'package:resturant_app1/components/myTextfield.dart';
 import 'package:resturant_app1/main.dart';
@@ -17,11 +20,22 @@ class _LoginpageState extends State<Loginpage> {
 
   void login() async {
     //move to homepage
+    try {
+      final String email = _email.text;
+      final String password = _password.text;
+      await AuthService().loginApp(email, password);
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage()),
-    );
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    } on InvalidcredentialException {
+      await errorDailog(context, 'Invalid credential');
+    } on InvalidEmailException {
+      await errorDailog(context, 'Invalid email');
+    } on GenericException {
+      await errorDailog(context, 'error');
+    }
   }
 
   @override

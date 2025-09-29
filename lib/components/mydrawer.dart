@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:resturant_app1/Auth/auth_service.dart';
+import 'package:resturant_app1/components/logoutdailog.dart';
 import 'package:resturant_app1/pages/settingsPage.dart';
 
 class Mydrawer extends StatelessWidget {
@@ -43,7 +45,19 @@ class Mydrawer extends StatelessWidget {
             ],
           ),
 
-          ListTile(leading: Icon(Icons.logout), title: Text('logout')),
+          ListTile(
+            leading: Icon(Icons.logout),
+            title: Text('logout'),
+            onTap: () async {
+              Navigator.pop(context);
+              final logout = await logoutDailog(context);
+              if (logout) {
+                await AuthService().signoutApp();
+              } else {
+                return;
+              }
+            },
+          ),
         ],
       ),
     );

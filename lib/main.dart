@@ -1,8 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:resturant_app1/Auth/getGate.dart';
 import 'package:resturant_app1/components/mydrawer.dart';
 import 'package:resturant_app1/components/registerorLogin.dart';
+import 'package:resturant_app1/firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -17,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Registerorlogin(),
+      home: Getgate(),
     );
   }
 }
