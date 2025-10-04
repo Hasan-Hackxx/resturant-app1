@@ -1,16 +1,25 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:resturant_app1/Auth/getGate.dart';
 import 'package:resturant_app1/components/my_current_location.dart';
 import 'package:resturant_app1/components/my_description.dart';
 import 'package:resturant_app1/components/my_sliver_app_bar.dart';
+import 'package:resturant_app1/components/mybar.dart';
 import 'package:resturant_app1/components/mydrawer.dart';
 import 'package:resturant_app1/firebase_options.dart';
+import 'package:resturant_app1/models/food.dart';
+import 'package:resturant_app1/models/resturant.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => Resturant(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -36,7 +45,42 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(
+      length: FoodCategory.values.length,
+      vsync: this,
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  List<Food> _filtermenubyCategory(FoodCategory category, List<Food> fullmenu) {
+    return fullmenu.where((food) => food.category == category).toList();
+  }
+
+  List<Widget> getfoodInthiscategory(List<Food> fullmenu) {
+    return FoodCategory.values.map((category) {
+      List<Food> categorymeny = _filtermenubyCategory(category, fullmenu);
+
+      return ListView.builder(
+        itemCount: categorymeny.length,
+        itemBuilder: (context, index) {
+          return ListTile(title: Text(categorymeny[index].name));
+        },
+      );
+    }).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +88,7 @@ class _HomePageState extends State<HomePage> {
       body: NestedScrollView(
         headerSliverBuilder: (context, inner) => [
           MySliverAppBar(
-            title: Text('title'),
+            title: Mybar(tabcontoller: _tabController),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -57,7 +101,12 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ],
-        body: Container(color: Colors.blue),
+        body: Consumer<Resturant>(
+          builder: (context, resturnat, child) => TabBarView(
+            controller: _tabController,
+            children: getfoodInthiscategory(resturnat.menu),
+          ),
+        ),
       ),
     );
   }

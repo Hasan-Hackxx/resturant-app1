@@ -7,7 +7,7 @@ class MyDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
-      margin: EdgeInsets.only(left: 25, right: 25, top: 25),
+      margin: EdgeInsets.only(left: 25, right: 25, top: 35, bottom: 25),
       child: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Row(
