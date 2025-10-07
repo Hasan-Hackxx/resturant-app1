@@ -2,11 +2,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:resturant_app1/Auth/getGate.dart';
+import 'package:resturant_app1/components/foodtitle.dart';
 import 'package:resturant_app1/components/my_current_location.dart';
 import 'package:resturant_app1/components/my_description.dart';
 import 'package:resturant_app1/components/my_sliver_app_bar.dart';
 import 'package:resturant_app1/components/mybar.dart';
 import 'package:resturant_app1/components/mydrawer.dart';
+import 'package:resturant_app1/components/test.dart';
 import 'package:resturant_app1/firebase_options.dart';
 import 'package:resturant_app1/models/food.dart';
 import 'package:resturant_app1/models/resturant.dart';
@@ -75,7 +77,8 @@ class _HomePageState extends State<HomePage>
       return ListView.builder(
         itemCount: categorymeny.length,
         itemBuilder: (context, index) {
-          return ListTile(title: Text(categorymeny[index].name));
+          final Food food = categorymeny[index];
+          return Foodtitle(onTap: () {}, food: food);
         },
       );
     }).toList();

@@ -9,7 +9,7 @@ class Resturant extends ChangeNotifier {
     Food(
       name: 'Burger1',
       description: 'hasan badour dkkd skskssk cheese ',
-      imagePath: 'lib/images/burgers/b1.jpg',
+      imagePath: 'images/b11.jpg',
       price: 0.99,
       avalibleaddon: [Addons(name: 'Extra chesse', price: 1.00)],
       category: FoodCategory.burgers,
@@ -17,7 +17,7 @@ class Resturant extends ChangeNotifier {
     Food(
       name: 'Burger2',
       description: 'hasan badour dkkd skskssk cheese ',
-      imagePath: 'lib/images/burgers/b2.jpg',
+      imagePath: 'images/b2.jpg',
       price: 0.99,
       avalibleaddon: [Addons(name: 'Extra chesse', price: 1.00)],
       category: FoodCategory.burgers,
@@ -25,7 +25,7 @@ class Resturant extends ChangeNotifier {
     Food(
       name: 'Burger3',
       description: 'hasan badour dkkd skskssk cheese ',
-      imagePath: 'lib/images/burgers/b3.jpg',
+      imagePath: 'images/b3.jpg',
       price: 0.99,
       avalibleaddon: [Addons(name: 'Extra chesse', price: 1.00)],
       category: FoodCategory.burgers,
@@ -35,7 +35,7 @@ class Resturant extends ChangeNotifier {
     Food(
       name: 'drink1',
       description: 'my favourite drink is drink1',
-      imagePath: 'lib/images/drinks/d1.jpg',
+      imagePath: 'images/d1.jpg',
       price: 1.99,
       avalibleaddon: [Addons(name: 'fruits with drink', price: 0.99)],
       category: FoodCategory.drinks,
@@ -43,7 +43,7 @@ class Resturant extends ChangeNotifier {
     Food(
       name: 'drink2',
       description: 'my favourite drink is drink1',
-      imagePath: 'lib/images/drinks/d2.jpg',
+      imagePath: 'images/d2.jpg',
       price: 1.99,
       avalibleaddon: [Addons(name: 'fruits with drink', price: 0.99)],
       category: FoodCategory.drinks,
@@ -51,7 +51,7 @@ class Resturant extends ChangeNotifier {
     Food(
       name: 'drink3',
       description: 'my favourite drink is drink1',
-      imagePath: 'lib/images/drinks/d3.jpg',
+      imagePath: 'images/d3.jpg',
       price: 1.99,
       avalibleaddon: [Addons(name: 'fruits with drink', price: 0.99)],
       category: FoodCategory.drinks,
@@ -61,7 +61,7 @@ class Resturant extends ChangeNotifier {
     Food(
       name: 'salad1',
       description: 'salad is the most delesious snak in the resturant',
-      imagePath: 'lib/images/salads/s1.jpg',
+      imagePath: 'images/s1.jpg',
       price: 3.00,
       avalibleaddon: [Addons(name: 'taboola', price: 1.00)],
       category: FoodCategory.salads,
@@ -69,7 +69,7 @@ class Resturant extends ChangeNotifier {
     Food(
       name: 'salad2',
       description: 'salad is the most delesious snak in the resturant',
-      imagePath: 'lib/images/salads/s2.jpg',
+      imagePath: 'images/s2.jpg',
       price: 3.00,
       avalibleaddon: [Addons(name: 'taboola', price: 1.00)],
       category: FoodCategory.salads,
@@ -77,7 +77,7 @@ class Resturant extends ChangeNotifier {
     Food(
       name: 'salad3',
       description: 'salad is the most delesious snak in the resturant',
-      imagePath: 'lib/images/salads/s3.jpg',
+      imagePath: 'images/s3.jpg',
       price: 3.00,
       avalibleaddon: [Addons(name: 'taboola', price: 1.00)],
       category: FoodCategory.salads,
