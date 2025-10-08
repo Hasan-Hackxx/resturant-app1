@@ -11,7 +11,10 @@ class Resturant extends ChangeNotifier {
       description: 'hasan badour dkkd skskssk cheese ',
       imagePath: 'images/b11.jpg',
       price: 0.99,
-      avalibleaddon: [Addons(name: 'Extra chesse', price: 1.00)],
+      avalibleaddon: [
+        Addons(name: 'Extra chesse', price: 1.00),
+        Addons(name: 'jdjddj djdjdjd', price: 2.0),
+      ],
       category: FoodCategory.burgers,
     ),
     Food(
@@ -19,7 +22,10 @@ class Resturant extends ChangeNotifier {
       description: 'hasan badour dkkd skskssk cheese ',
       imagePath: 'images/b2.jpg',
       price: 0.99,
-      avalibleaddon: [Addons(name: 'Extra chesse', price: 1.00)],
+      avalibleaddon: [
+        Addons(name: 'Extra chesse', price: 1.00),
+        Addons(name: 'jdjddj djdjdjd', price: 2.0),
+      ],
       category: FoodCategory.burgers,
     ),
     Food(
@@ -27,7 +33,10 @@ class Resturant extends ChangeNotifier {
       description: 'hasan badour dkkd skskssk cheese ',
       imagePath: 'images/b3.jpg',
       price: 0.99,
-      avalibleaddon: [Addons(name: 'Extra chesse', price: 1.00)],
+      avalibleaddon: [
+        Addons(name: 'Extra chesse', price: 1.00),
+        Addons(name: 'jdjddj djdjdjd', price: 2.0),
+      ],
       category: FoodCategory.burgers,
     ),
 
@@ -37,7 +46,10 @@ class Resturant extends ChangeNotifier {
       description: 'my favourite drink is drink1',
       imagePath: 'images/d1.jpg',
       price: 1.99,
-      avalibleaddon: [Addons(name: 'fruits with drink', price: 0.99)],
+      avalibleaddon: [
+        Addons(name: 'fruits with drink', price: 0.99),
+        Addons(name: 'jdjddj djdjdjd', price: 2.0),
+      ],
       category: FoodCategory.drinks,
     ),
     Food(
@@ -45,7 +57,10 @@ class Resturant extends ChangeNotifier {
       description: 'my favourite drink is drink1',
       imagePath: 'images/d2.jpg',
       price: 1.99,
-      avalibleaddon: [Addons(name: 'fruits with drink', price: 0.99)],
+      avalibleaddon: [
+        Addons(name: 'fruits with drink', price: 0.99),
+        Addons(name: 'jdjddj djdjdjd', price: 2.0),
+      ],
       category: FoodCategory.drinks,
     ),
     Food(
@@ -53,7 +68,10 @@ class Resturant extends ChangeNotifier {
       description: 'my favourite drink is drink1',
       imagePath: 'images/d3.jpg',
       price: 1.99,
-      avalibleaddon: [Addons(name: 'fruits with drink', price: 0.99)],
+      avalibleaddon: [
+        Addons(name: 'fruits with drink', price: 0.99),
+        Addons(name: 'jdjddj djdjdjd', price: 2.0),
+      ],
       category: FoodCategory.drinks,
     ),
 
@@ -63,7 +81,10 @@ class Resturant extends ChangeNotifier {
       description: 'salad is the most delesious snak in the resturant',
       imagePath: 'images/s1.jpg',
       price: 3.00,
-      avalibleaddon: [Addons(name: 'taboola', price: 1.00)],
+      avalibleaddon: [
+        Addons(name: 'taboola', price: 1.00),
+        Addons(name: 'jdjddj djdjdjd', price: 2.0),
+      ],
       category: FoodCategory.salads,
     ),
     Food(
@@ -71,7 +92,10 @@ class Resturant extends ChangeNotifier {
       description: 'salad is the most delesious snak in the resturant',
       imagePath: 'images/s2.jpg',
       price: 3.00,
-      avalibleaddon: [Addons(name: 'taboola', price: 1.00)],
+      avalibleaddon: [
+        Addons(name: 'taboola', price: 1.00),
+        Addons(name: 'jdjddj djdjdjd', price: 2.0),
+      ],
       category: FoodCategory.salads,
     ),
     Food(
@@ -79,7 +103,10 @@ class Resturant extends ChangeNotifier {
       description: 'salad is the most delesious snak in the resturant',
       imagePath: 'images/s3.jpg',
       price: 3.00,
-      avalibleaddon: [Addons(name: 'taboola', price: 1.00)],
+      avalibleaddon: [
+        Addons(name: 'taboola', price: 1.00),
+        Addons(name: 'jdjddj djdjdjd', price: 2.0),
+      ],
       category: FoodCategory.salads,
     ),
   ];

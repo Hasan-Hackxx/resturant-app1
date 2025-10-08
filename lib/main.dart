@@ -8,10 +8,10 @@ import 'package:resturant_app1/components/my_description.dart';
 import 'package:resturant_app1/components/my_sliver_app_bar.dart';
 import 'package:resturant_app1/components/mybar.dart';
 import 'package:resturant_app1/components/mydrawer.dart';
-import 'package:resturant_app1/components/test.dart';
 import 'package:resturant_app1/firebase_options.dart';
 import 'package:resturant_app1/models/food.dart';
 import 'package:resturant_app1/models/resturant.dart';
+import 'package:resturant_app1/pages/food_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -78,7 +78,13 @@ class _HomePageState extends State<HomePage>
         itemCount: categorymeny.length,
         itemBuilder: (context, index) {
           final Food food = categorymeny[index];
-          return Foodtitle(onTap: () {}, food: food);
+          return Foodtitle(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => FoodPage(food: food)),
+            ),
+            food: food,
+          );
         },
       );
     }).toList();

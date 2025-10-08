@@ -12,20 +12,46 @@ class Foodtitle extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: onTap,
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    Text(food.name),
-                    Text('\$' + food.price.toString()),
-                    Text(food.description),
-                  ],
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        food.name,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        '\$' + food.price.toString(),
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        food.description,
+                        style: TextStyle(fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
 
-              Image.asset(food.imagePath, height: 80, width: 80),
-            ],
+                ClipRRect(
+                  borderRadius: BorderRadiusGeometry.circular(12),
+                  child: Image.asset(food.imagePath, height: 120, width: 120),
+                ),
+              ],
+            ),
           ),
         ),
       ],
