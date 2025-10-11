@@ -16,7 +16,7 @@ class CartTitle extends StatelessWidget {
           color: const Color.fromARGB(255, 196, 194, 194),
           borderRadius: BorderRadius.circular(8),
         ),
-        margin: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+        margin: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
         child: Column(
           children: [
             Row(
@@ -33,17 +33,27 @@ class CartTitle extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 5),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //name food
-                    Text(cartitem.food.name),
+                    Text(
+                      cartitem.food.name,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
                     //food price
-                    Text(cartitem.food.price.toString()),
+                    Text(
+                      '\$' + cartitem.food.price.toString(),
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    ),
                   ],
                 ),
-                Spacer(),
+                SizedBox(width: 70),
                 //decement + incement quantity
                 MyQuaintitySelecter(
                   food: cartitem.food,
@@ -55,30 +65,51 @@ class CartTitle extends StatelessWidget {
                   },
                   quality: cartitem.quality,
                 ),
-
-                //addon
-                SizedBox(
-                  height: cartitem.selectedAddon.isEmpty ? 0 : 50,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: cartitem.selectedAddon
-                        .map(
-                          (addon) => FilterChip(
+              ],
+            ),
+            //addon
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(
+                height: cartitem.selectedAddon.isEmpty ? 0 : 60,
+                width: double.infinity,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: cartitem.selectedAddon
+                      .map(
+                        (addon) => Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
+                          child: FilterChip(
                             label: Row(
                               children: [
                                 //addon name
                                 Text(addon.name),
+                                SizedBox(width: 10),
                                 //addon price
-                                Text('\$' + addon.price.toString()),
+                                Text(
+                                  '\$' + addon.price.toString(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12,
+                                  ),
+                                ),
                               ],
                             ),
+                            shape: StadiumBorder(
+                              side: BorderSide(color: Colors.black),
+                            ),
                             onSelected: (value) {},
+                            backgroundColor: Colors.amber,
+                            labelStyle: TextStyle(
+                              color: Colors.black,
+                              fontSize: 13,
+                            ),
                           ),
-                        )
-                        .toList(),
-                  ),
+                        ),
+                      )
+                      .toList(),
                 ),
-              ],
+              ),
             ),
           ],
         ),

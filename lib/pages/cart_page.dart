@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:resturant_app1/components/cart_title.dart';
+import 'package:resturant_app1/components/myButton.dart';
 import 'package:resturant_app1/models/resturant.dart';
 
 class CartPage extends StatefulWidget {
@@ -18,18 +19,66 @@ class _CartPageState extends State<CartPage> {
         final cartuser = resturant.cart;
 
         return Scaffold(
-          appBar: AppBar(centerTitle: true, title: Text('Cart')),
+          appBar: AppBar(
+            centerTitle: true,
+            title: Text('Cart'),
+            actions: [
+              IconButton(
+                onPressed: () => showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: Text(
+                      'Are you sure you want to delete your orders!..',
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: Text('Cancel'),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          resturant.cleanCart();
+                        },
+                        child: Text('Yes'),
+                      ),
+                    ],
+                  ),
+                ),
+                icon: Icon(Icons.delete),
+              ),
+            ],
+          ),
+
           body: Column(
             children: [
               Expanded(
-                child: ListView.builder(
-                  itemCount: cartuser.length,
-                  itemBuilder: (context, index) {
-                    final cartitem = cartuser[index];
-                    return CartTitle(cartitem: cartitem);
-                  },
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: cartuser.isEmpty
+                          ? Center(
+                              child: const Text(
+                                'Cart is empty...',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            )
+                          : ListView.builder(
+                              itemCount: cartuser.length,
+                              itemBuilder: (context, index) {
+                                final cartitem = cartuser[index];
+                                return CartTitle(cartitem: cartitem);
+                              },
+                            ),
+                    ),
+                  ],
                 ),
               ),
+              Mybutton(onTap: () {}, text: 'Go to Checkout'),
+              SizedBox(height: 25),
             ],
           ),
         );
