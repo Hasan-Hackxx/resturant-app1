@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:resturant_app1/components/cart_title.dart';
 import 'package:resturant_app1/components/myButton.dart';
 import 'package:resturant_app1/models/resturant.dart';
+import 'package:resturant_app1/pages/paymentPage.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -77,7 +78,13 @@ class _CartPageState extends State<CartPage> {
                   ],
                 ),
               ),
-              Mybutton(onTap: () {}, text: 'Go to Checkout'),
+              Mybutton(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Paymentpage()),
+                ),
+                text: 'Go to Checkout',
+              ),
               SizedBox(height: 25),
             ],
           ),
