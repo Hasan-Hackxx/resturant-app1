@@ -120,8 +120,18 @@ class Resturant extends ChangeNotifier {
   List<Food> get menu => _menu;
   List<CartItem> get cart => _cart;
 
+  String _delevieryaddress = 'America- 9999';
+
+  String get delevieryaddress => _delevieryaddress;
+
   //user cart
   final List<CartItem> _cart = [];
+
+  //update address
+  void updateAddres(String newAddress) {
+    _delevieryaddress = newAddress;
+    notifyListeners();
+  }
 
   // add to cart
   void addtoCart(Food food, List<Addons> selectedAddon) {

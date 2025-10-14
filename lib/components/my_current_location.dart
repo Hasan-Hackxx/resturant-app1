@@ -1,19 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:resturant_app1/models/resturant.dart';
 
 class MyCurrentLocation extends StatelessWidget {
-  const MyCurrentLocation({super.key});
+  final TextEditingController textcontoller = TextEditingController();
+
+  MyCurrentLocation({super.key});
   void openlocationsearchbox(BuildContext context) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text('Your location'),
-        content: const TextField(decoration: InputDecoration()),
+        content: TextField(
+          controller: textcontoller,
+          decoration: InputDecoration(hintText: 'Enter your location'),
+        ),
         actions: [
           MaterialButton(
             onPressed: () => Navigator.pop(context),
             child: Text('cancel'),
           ),
-          MaterialButton(onPressed: () {}, child: Text('save')),
+          MaterialButton(
+            onPressed: () {
+              String newAddress = textcontoller.text;
+              context.read<Resturant>().updateAddres(newAddress);
+              Navigator.pop(context);
+              textcontoller.clear();
+            },
+            child: Text('save'),
+          ),
         ],
       ),
     );
@@ -35,9 +50,15 @@ class MyCurrentLocation extends StatelessWidget {
             child: Row(
               children: [
                 //address
-                Text(
-                  'lattakia 09333',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                Consumer<Resturant>(
+                  builder: (context, resturnat, child) => Text(
+                    resturnat.delevieryaddress,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
                 //icon
                 Icon(Icons.keyboard_arrow_down_rounded),
