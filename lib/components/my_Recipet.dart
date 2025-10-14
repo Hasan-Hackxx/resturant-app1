@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:resturant_app1/models/resturant.dart';
 
 class MyRecipet extends StatelessWidget {
   const MyRecipet({super.key});
@@ -27,9 +29,15 @@ class MyRecipet extends StatelessWidget {
               ),
               padding: EdgeInsets.all(25),
 
-              child: Text(
-                "Recipet here..",
-                style: TextStyle(fontWeight: FontWeight.w700),
+              child: Consumer<Resturant>(
+                builder: (context, resturant, child) => Text(
+                  resturant.displaycartResciept(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    color: Colors.black,
+                  ),
+                ),
               ),
             ),
           ],

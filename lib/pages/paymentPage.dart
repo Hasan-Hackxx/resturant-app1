@@ -68,14 +68,14 @@ class _PaymentpageState extends State<Paymentpage> {
       body: Column(
         children: [
           //credit cart
-          CreditCardWidget(
+          /* CreditCardWidget(
             cardNumber: cardNumber,
             expiryDate: expiryDate,
             cardHolderName: cardHolderName,
             cvvCode: cvvCode,
             showBackView: isCvvfocesed,
             onCreditCardWidgetChange: (p0) {},
-          ),
+          ),*/
 
           // card form
           CreditCardForm(
